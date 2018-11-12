@@ -1,1 +1,1 @@
-# KenPHP1.01
+# TinyPHP1.01
