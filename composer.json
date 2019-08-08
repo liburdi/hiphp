@@ -1,0 +1,22 @@
+{
+    "name": "kenritchie/hiphp",
+    "description": "hang in php is an open-source, simple web framework for the php programming language.",
+    "authors": [
+        {
+            "name": "chencf",
+            "email": "KenRitChie@163.com"
+        }
+
+    ],
+    "require": {
+        "php": ">=5.3.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Hi\\": "src/"
+        },
+        "files": [
+            "src/Common/functions.php"
+        ]
+    }
+}
