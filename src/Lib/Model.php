@@ -1,6 +1,6 @@
 <?php
-namespace core\lib;
-class model extends \PDO{
+namespace src\Lib;
+class Model extends \PDO{
 	public function __construct(){
 		$dsn='mysql:host=localhost;dbname=test';
 		$username='root';

@@ -1,6 +1,6 @@
 <?php
-namespace core\lib;
-class route{
+namespace src\Lib;
+class Route{
 	public $ctrl;
 	public $action;
 	public function __construct(){
@@ -34,7 +34,6 @@ class route{
 				}
 				$i=$i+2;
 			}
-			print_r($_GET[id]);
 		}else{
 			$this->ctrl='index';
 			$this->action='index';
