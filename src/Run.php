@@ -4,6 +4,7 @@ namespace src;
 
 use src\Common\Exceptions\InvalidRouteException;
 
+
 class Run
 {
     public static $classMap = array();
@@ -13,22 +14,23 @@ class Run
      * the entrance
      * @throws InvalidRouteException
      */
-    static public function run()
+    public static function run()
     {
-        $route = new lib\Route();//路由类
+        $route = new Lib\Route();//路由类
 //		$Config=Lib\Conf::get('CTRL','route');//配置类
 
         $ctrl = $route->ctrl;
         $action = $route->action;
-        $ctrlFile = APP . '/controller/' . $ctrl . '.php';
+        $ctrlFile = APPPATH . '/Controllers/' . $ctrl . '.php';
+//        print_r($ctrlFile);exit();
         if (is_file($ctrlFile)) {
+
             include $ctrlFile;
 
-            $controller = '\\' . MODULE . '\\controller\\' . $ctrl;
+            $controller = '\\' . MODULE . '\\Controllers\\' . $ctrl;
             $obj = new $controller();
             $obj->$action();
         } else {
-            spl_autoload_register('src\Run::load');
             throw new InvalidRouteException('File not found ' . $ctrlFile);
         }
     }
@@ -39,14 +41,14 @@ class Run
      * @return bool
      * @throws InvalidRouteException
      */
-    static public function load($class)
+     public static function load($class)
     {
         if (isset($classMap[$class])) {
             return true;
 
         } else {
             $class = str_replace('\\', '/', $class);
-            $file = APPDIR . '/' . $class . '.php';
+            $file =   '/' . $class . '.php';
             if (is_file($file)) {
                 include $file;
                 self::$classMap[$class] = $class;
@@ -65,7 +67,7 @@ class Run
 
     public function display($file)
     {
-        $file = APPDIR . '/views/' . $file;
+        $file = APPPATH . '/views/' . $file;
         if (is_file($file)) {
             extract($this->assign);
             include $file;
