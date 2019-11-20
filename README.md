@@ -3,5 +3,5 @@
 ## 安装
 
 ~~~
-composer create-project KenRitchie/hiphp hp 1.0.*-dev
+composer create-project KenRitchie/hiphp hp
 ~~~
