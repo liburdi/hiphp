@@ -1,5 +1,6 @@
 {
     "name": "kenritchie/hiphp",
+	"type": "project",
     "description": "hang in php is an open-source, simple web framework for the php programming language.",
     "authors": [
         {
