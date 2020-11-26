@@ -22,7 +22,6 @@ class Run
         $ctrl = $route->ctrl;
         $action = $route->action;
         $ctrlFile = APPPATH . '/Controllers/' . $ctrl . '.php';
-//        print_r($ctrlFile);exit();
         if (is_file($ctrlFile)) {
 
             include $ctrlFile;
@@ -31,7 +30,17 @@ class Run
             $obj = new $controller();
             $obj->$action();
         } else {
-            throw new InvalidRouteException('File not found ' . $ctrlFile);
+            $ctrlFile = APPPATH . '/Crons/' . $ctrl . '.php';
+            if (is_file($ctrlFile)) {
+
+                include $ctrlFile;
+
+                $controller = '\\' . MODULE . '\\Crons\\' . $ctrl;
+                $obj = new $controller();
+                $obj->$action();
+            }else {
+                throw new InvalidRouteException('File not found ' . $ctrlFile);
+            }
         }
     }
 
@@ -41,7 +50,7 @@ class Run
      * @return bool
      * @throws InvalidRouteException
      */
-     public static function load($class)
+    public static function load($class)
     {
         if (isset($classMap[$class])) {
             return true;

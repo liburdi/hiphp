@@ -11,11 +11,11 @@ class Conf
     static public function get($name, $file)
     {
         /**
-        *1.判断配置文件是否存在
-        *2.判断配置是否存在
-        *3.缓存设置
-        */
-        $file = __DIR__.'../Config/' . $file . '.php';
+         *1.判断配置文件是否存在
+         *2.判断配置是否存在
+         *3.缓存设置
+         */
+        $file = __DIR__.'/../Config/' . $file . '.php';
         if (is_file($file)) {
             $conf = include $file;
             if (isset($conf[$name])) {
