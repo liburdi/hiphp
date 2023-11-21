@@ -1,19 +1,17 @@
 ### 用途
 
 - 了解框架的实现
-- 高性能小场景的项目开发，比如秒杀，拼团等
-- 让开发者专注于代码实现、架构设计
 
 
 ### 安装
 > HiPHP1.0的运行环境要求PHP7.1+。
 ~~~
-composer create-project KenRitchie/hiphp hp
+composer create-project liburdi/hiphp hp
 ~~~
 
 * 指定版本安装
 ~~~
-composer create-project KenRitchie/hiphp=v1.0.0 hp
+composer create-project liburdi/hiphp=v1.0.0 hp
 ~~~
 
 * nginx
